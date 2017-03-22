@@ -78,8 +78,7 @@ for post in myFile.json()["data"]["children"]:
 		print 'Invalid field: ' + FIELD
 		sys.exit(1)
 
-for titl, author, link, x , y in zip(titles, authors, links, nums, range(0,LIM
-IT)):
+for titl, author, link, x , y in zip(titles, authors, links, nums, range(0,LIMIT)):
 	print str(x).ljust(4) + 'Title: '.ljust(2) + '  ' + titl
 	print 'Author: '.rjust(12) + '  ' + author
 	print 'Link: '.rjust(10) + '  ' + link
