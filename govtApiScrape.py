@@ -3,7 +3,11 @@
 import requests
 APIKEY = "api_key=LqM5NhDNLbD12MklskDjXVoB0nYTkhe1LNiucQd6"
 
-response = requests.get("https://api.data.gov/ed/collegescorecard/v1/schools/?" + APIKEY + "&")
-print len(response.json()['results'])
-for x in response.json()['results']:
-	print x['school']['name']
+for i in range(1, 387):
+	response = requests.get("https://api.data.gov/ed/collegescorecard/v1/schools/?" + APIKEY + "&_page=" + str(i))
+	
+	try:
+		for x in response.json()['results']:
+			print x['school']['name']
+	except ValueError:
+		pass;

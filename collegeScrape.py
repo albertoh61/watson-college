@@ -7,18 +7,25 @@ import re
 mainUrl = "http://www.searchenginesmarketer.com/list-of-university-and-college-websites/"
 
 mainResponse = requests.get(mainUrl)
-colleges = []
+colleges = set()
 
 for line in mainResponse.text.splitlines():
 	match = re.findall('http://[^.]*.edu/', line)
 	if len(match):
-		colleges.append(match[0])
+		colleges.add(match[0])
 
+i = 0
 for url in colleges:
-	print url;
-	# collegeUrls = []
-	# collegeResponse = requests.get(url)
+	try:
+		collegeResponse = requests.get(url)
+	except requests.exceptions.ConnectionError:
+		pass;
 	
+	if collegeResponse.status_code == 200:
+		print url
+	i = i + 1
+
+print "{} college urls found".format(i)
 	# infos = set() 
 	# for line in collegeResponse.text.splitlines():
 	# 	for p in re.findall('[^"]*/(about[^"]*)', line):
@@ -28,5 +35,3 @@ for url in colleges:
 	# for x in infos:
 	# 	print x
 
-# This was as far as I got until I realized I couldn't do much with the about urls
-# I just picked one sepcific college to test on, but ideally it would test all by altering the condition in line 14
