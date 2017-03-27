@@ -1,4 +1,5 @@
 #!/usr/bin/env python2.7
+# Based on files found at https://ope.ed.gov/accreditation/GetDownLoadFile.aspx
 
 import requests
 import zipfile
