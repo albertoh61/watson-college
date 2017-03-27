@@ -32,7 +32,6 @@ for twitter_handle in sys.argv[1:]:
     user_tweets=getTweets(twitter_handle)
     print re.sub('http[s]?[^ ]*', '', user_tweets)
 
-
   except:
     print "Download failed..."
 
