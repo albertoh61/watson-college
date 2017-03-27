@@ -1,3 +1,0 @@
-1. Learn how to use the Watson API (20 pts)
-2. Write python scrips to aggregate all text into a useable format from Facebook to feed into the API (15 pts)
-3. Learn to use github branch managing system (5 pts)
