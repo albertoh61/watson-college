@@ -6,8 +6,6 @@ import json
 import twitter
 import re
 
-
-
 # Get previous 200 tweets from specified user
 def getTweets(user):
   twitter_consumer_key = 'RU02u4DcvQbglyj8IdvD6KN9M'
@@ -22,8 +20,7 @@ def getTweets(user):
     tweet_text += tweet.text.encode('utf-8').strip() + ' '
 
   return tweet_text
-
-
+  
 # Main
 
 # For each specified user download tweets as string
@@ -31,12 +28,5 @@ for twitter_handle in sys.argv[1:]:
   try:
     user_tweets=getTweets(twitter_handle)
     print re.sub('http[s]?[^ ]*', '', user_tweets)
-
   except:
     print "Download failed..."
-
-
-
-
-
-    
